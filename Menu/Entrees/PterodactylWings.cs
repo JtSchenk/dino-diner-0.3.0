@@ -22,5 +22,17 @@ namespace DinoDiner.Menu
         {
             return "Pterodactly Wings";
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Chicken");
+                ingredients.Add("Wing Sauce");
+                return ingredients;
+
+            }
+        }
     }
 }

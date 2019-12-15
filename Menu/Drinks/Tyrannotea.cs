@@ -127,5 +127,24 @@ namespace DinoDiner.Menu
                 return size + " Tyrannotea";
             }
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if (Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                if (Sweet)
+                {
+                    ingredients.Add("Cane Sugar");
+                }
+                return ingredients;
+            }
+        }
     }
 }

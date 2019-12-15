@@ -11,11 +11,11 @@ namespace DinoDiner.Menu
     public class Menu
     {
 
-        public List<Menu> AvailableMenuItems
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
-                List<Menu> menu = new List<Menu>();
+                List<IMenuItem> menu = new List<IMenuItem>();
                 menu.Add(new Brontowurst());
                 menu.Add(new DinoNuggets());
                 menu.Add(new PrehistoricPBJ());

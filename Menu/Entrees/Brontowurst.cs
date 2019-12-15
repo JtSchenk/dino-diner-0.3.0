@@ -35,6 +35,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
+            this.wholewheatbun = false;
             ingredients.Remove("Whole Wheat Bun");
         }
 
@@ -43,6 +44,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPeppers()
         {
+            this.peppers = false;
             ingredients.Remove("Peppers");
         }
 
@@ -51,6 +53,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldOnion()
         {
+            this.onions = false;
             ingredients.Remove("Onion");
         }
 
@@ -58,6 +61,18 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Brontowurst";
+        }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>() { "Brautwurst" };
+                if (wholewheatbun) ingredients.Add("Whole Wheat Bun");
+                if (peppers) ingredients.Add("Peppers");
+                if (onions) ingredients.Add("Onion");
+                return ingredients;
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public List<string> Ingredients { get; }
+        public abstract List<string> Ingredients { get; }
 
     }
 }

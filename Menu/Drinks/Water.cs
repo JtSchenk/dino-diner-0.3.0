@@ -92,5 +92,19 @@ namespace DinoDiner.Menu
         {
             return Size + " Water";
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                if (Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                return ingredients;
+            }
+        }
     }
 }

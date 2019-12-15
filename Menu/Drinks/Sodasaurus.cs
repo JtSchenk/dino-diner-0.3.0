@@ -84,5 +84,17 @@ namespace DinoDiner.Menu
         {
             return size + " " + flavor + " Sodasaurus";
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Natural Flavors");
+                ingredients.Add("Cane Sugar");
+                return ingredients;
+            }
+        }
     }
 }

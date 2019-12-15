@@ -77,5 +77,21 @@ namespace DinoDiner.Menu
         {
             return "Steakosaurus Burger";
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>
+                {
+                    "Steakburger Pattie"
+                };
+                if (wholewheatbun) ingredients.Add("Whole Wheat Bun");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                return ingredients;
+            }
+        }
     }
 }

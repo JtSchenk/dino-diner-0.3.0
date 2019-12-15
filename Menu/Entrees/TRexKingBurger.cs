@@ -127,5 +127,26 @@ namespace DinoDiner.Menu
         {
             return "Steakosaurus Burger";
         }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                for (int i = 0; i < 3; i++)
+                {
+                    ingredients.Add("Steakburger Pattie");
+                };
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                return ingredients;
+            }
+        }
     }
 }

@@ -95,11 +95,23 @@ namespace DinoDiner.Menu
         {
             if (Decaf)
             {
-                return size + " Decaf Jurassic Java";
+                return $"{Size} Decaf Jurassic Java";
             }
             else
             {
-                return size + " Jurassic Java";
+                return $"{Size} Jurassic Java";
+            }
+        }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                if (RoomForCream) ingredients.Add("Room For Cream");
+                ingredients.Add("Coffee");
+                return ingredients;
             }
         }
     }
