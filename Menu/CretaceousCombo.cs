@@ -64,8 +64,12 @@ namespace DinoDiner.Menu
             Entree = entree;
             Side = new Fryceritops();
             Drink = new Sodasaurus();
-
-
         }
+
+        public override string ToString()
+        {
+            return $"{ Entree.ToString()} Combo";
+        }
+
     }
 }
