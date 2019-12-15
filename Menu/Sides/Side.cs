@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets and returns the ingredients into the list of ingredients.
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        public List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets and sets the calories

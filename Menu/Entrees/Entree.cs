@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     public abstract class Entree : IMenuItem
     {
@@ -24,7 +24,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        public List<string> Ingredients { get; }
 
     }
 }

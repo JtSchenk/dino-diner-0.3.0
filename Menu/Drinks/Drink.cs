@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Base class that other classes inherit from.
@@ -31,7 +31,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        public List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets or sets the size

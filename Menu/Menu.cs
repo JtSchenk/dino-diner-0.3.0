@@ -5,9 +5,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Entrees;
-using DinoDiner.Menu;
-using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu
 {
@@ -30,7 +27,7 @@ namespace DinoDiner.Menu
                 menu.Add(new MeteorMacAndCheese());
                 menu.Add(new MezzorellaSticks());
                 menu.Add(new Triceritots());
-                menu.Add(new JurassicJava());
+                menu.Add(new JurrasicJava());
                 menu.Add(new Sodasaurus());
                 menu.Add(new Tyrannotea());
                 menu.Add(new Water());
@@ -79,7 +76,7 @@ namespace DinoDiner.Menu
             get
             {
                 List<IMenuItem> availDrinks = new List<IMenuItem>();
-                availDrinks.Add(new JurassicJava());
+                availDrinks.Add(new JurrasicJava());
                 availDrinks.Add(new Sodasaurus());
                 availDrinks.Add(new Tyrannotea());
                 availDrinks.Add(new Water());
