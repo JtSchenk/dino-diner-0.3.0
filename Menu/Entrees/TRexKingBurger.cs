@@ -64,6 +64,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
+            this.bun = false;
             ingredients.Remove("Whole Wheat Bun");
         }
 
@@ -72,6 +73,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
+            this.lettuce = false;
             ingredients.Remove("Lettuce");
         }
 
@@ -80,6 +82,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldTomato()
         {
+            this.tomato = false;
             ingredients.Remove("Tomato");
         }
 
@@ -88,6 +91,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldOnion()
         {
+            this.onion = false;
             ingredients.Remove("Onion");
         }
 
@@ -96,6 +100,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
+            this.pickle = false;
             ingredients.Remove("Pickle");
         }
 
@@ -104,6 +109,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
+            this.ketchup = false;
             ingredients.Remove("Ketchup");
         }
 
@@ -112,6 +118,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
+            this.mustard = false;
             ingredients.Remove("Mustard");
         }
 
@@ -120,12 +127,13 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMayo()
         {
+            this.mayo = false;
             ingredients.Remove("Mayo");
         }
 
         public override string ToString()
         {
-            return "Steakosaurus Burger";
+            return "T-Rex King Burger";
         }
 
         public override List<string> Ingredients
@@ -136,7 +144,8 @@ namespace DinoDiner.Menu
                 for (int i = 0; i < 3; i++)
                 {
                     ingredients.Add("Steakburger Pattie");
-                };
+                }
+
                 if (bun) ingredients.Add("Whole Wheat Bun");
                 if (pickle) ingredients.Add("Pickle");
                 if (ketchup) ingredients.Add("Ketchup");

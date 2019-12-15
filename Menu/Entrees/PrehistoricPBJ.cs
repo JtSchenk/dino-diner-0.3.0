@@ -30,6 +30,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPeanutButter()
         {
+            this.peanutButter = false;
             ingredients.Remove("Peanut Butter");
         }
 
@@ -38,6 +39,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldJelly()
         {
+            this.jelly = false;
             ingredients.Remove("Jelly");
         }
 

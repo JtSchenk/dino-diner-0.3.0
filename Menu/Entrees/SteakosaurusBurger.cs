@@ -42,6 +42,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldBun()
         {
+            this.wholewheatbun = false;
             ingredients.Remove("Whole Wheat Bun");
         }
 
@@ -50,6 +51,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldPickle()
         {
+            this.pickle = false;
             ingredients.Remove("Pickle");
         }
          
@@ -58,6 +60,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldKetchup()
         {
+            this.ketchup = false;
             ingredients.Remove("Ketchup");
         }
 
@@ -66,6 +69,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldMustard()
         {
+            this.mustard = false;
             ingredients.Remove("Mustard");
         }
 

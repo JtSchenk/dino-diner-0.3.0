@@ -38,6 +38,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldDressing()
         {
+            this.dressing = false;
             ingredients.Remove("Ceasar Dressing");
         }
 
@@ -46,6 +47,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldLettuce()
         {
+            this.lettuce = false;
             ingredients.Remove("Romaine Lettuce");
         }
 
@@ -54,6 +56,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public void HoldCheese()
         {
+            this.cheese = false;
             ingredients.Remove("Parmesan Cheese");
         }
 

@@ -20,7 +20,7 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return "Pterodactly Wings";
+            return "Pterodactyl Wings";
         }
 
         public override List<string> Ingredients

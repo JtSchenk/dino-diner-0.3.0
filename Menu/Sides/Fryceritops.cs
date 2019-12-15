@@ -55,7 +55,19 @@ namespace DinoDiner.Menu
 
         public override string ToString()
         {
-            return size + " Fryceritops";
+            return $"{Size} Friceritops";
+        }
+
+        public override List<String> Ingredients
+        {
+            get
+            {
+                List<string> Ingredients = new List<string>();
+                Ingredients.Add("Potato");
+                Ingredients.Add("Salt");
+                Ingredients.Add("Vegetable Oil");
+                return Ingredients;
+            }
         }
     }
 }
