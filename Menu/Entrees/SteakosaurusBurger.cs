@@ -69,5 +69,13 @@ namespace DinoDiner.Menu.Entrees
             ingredients.Remove("Mustard");
         }
 
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
+        }
     }
 }

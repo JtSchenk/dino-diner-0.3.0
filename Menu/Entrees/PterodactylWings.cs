@@ -17,5 +17,10 @@ namespace DinoDiner.Menu.Entrees
             ingredients.Add("Chicken");
             ingredients.Add("Wing Sauce");
         }
+
+        public override string ToString()
+        {
+            return "Pterodactly Wings";
+        }
     }
 }

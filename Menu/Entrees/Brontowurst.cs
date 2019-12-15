@@ -5,7 +5,7 @@ using System.Text;
 namespace DinoDiner.Menu.Entrees
 {
     
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         
         // private field that intiliates the bun to be true. Later has a method that can change it to false.
@@ -52,6 +52,12 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             ingredients.Remove("Onion");
+        }
+
+
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
     }
 }

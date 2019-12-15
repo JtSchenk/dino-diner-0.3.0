@@ -122,5 +122,10 @@ namespace DinoDiner.Menu.Entrees
         {
             ingredients.Remove("Mayo");
         }
+
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
+        }
     }
 }

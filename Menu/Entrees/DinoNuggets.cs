@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNuggets : Entree
+    public class DinoNuggets : Entree, IMenuItem
     {
         /// <summary>
         /// Variable that represents how many extra nuggets have been added.
@@ -45,6 +45,11 @@ namespace DinoDiner.Menu.Entrees
             extranugget++;
             this.Calories = Calories + 59;
             this.Price = Price + 0.25;
+        }
+
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         /// <summary>
         /// public variable for lemonforwater. Gets, sets, and initially false.
@@ -82,6 +82,15 @@ namespace DinoDiner.Menu.Drinks
         public void HoldIce()
         {
             Ice = false;
+        }
+
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Size + " Water";
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DinoDiner.Menu.Drinks
     /// <summary>
     /// Base class that other classes inherit from.
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// protected variable that creates a new list of ingredients
@@ -31,7 +31,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public virtual List<string> Ingredients { get { return ingredients; } }
+        public abstract List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets or sets the size

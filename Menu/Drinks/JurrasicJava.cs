@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class JurrasicJava : Drink
+    public class JurrasicJava : Drink, IMenuItem
     {
         /// <summary>
         /// public variable ICE set to false.
@@ -85,6 +85,22 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return size + " Decaf Jurassic Java";
+            }
+            else
+            {
+                return size + " Jurassic Java";
+            }
         }
     }
 }

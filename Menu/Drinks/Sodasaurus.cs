@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         public bool Ice = true;
 
@@ -75,6 +75,14 @@ namespace DinoDiner.Menu.Drinks
         {
             Ice = false;
         }
-       
+
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return size + " " + flavor + " Sodasaurus";
+        }
     }
 }

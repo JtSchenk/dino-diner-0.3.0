@@ -8,7 +8,7 @@ namespace DinoDiner.Menu.Sides
     /// <summary>
     /// This public abstract method is a base for a bunch of sub classes.
     /// </summary>
-    public abstract class Side
+    public abstract class Side : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -22,7 +22,7 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Gets and returns the ingredients into the list of ingredients.
         /// </summary>
-        public virtual List<string> Ingredients { get { return ingredients; } }
+        public abstract List<string> Ingredients { get; }
 
         /// <summary>
         /// Gets and sets the calories

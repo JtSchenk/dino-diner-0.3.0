@@ -52,5 +52,10 @@ namespace DinoDiner.Menu.Sides
             Ingredients.Add("Salt");
             Ingredients.Add("Vegetable Oil");
         }
+
+        public override string ToString()
+        {
+            return size + " Fryceritops";
+        }
     }
 }

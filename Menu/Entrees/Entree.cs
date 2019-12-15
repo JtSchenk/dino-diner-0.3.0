@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public abstract class Entree
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// protected variable that creates a new list of ingredients
@@ -24,7 +24,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public virtual List<string> Ingredients { get { return ingredients; } }
+        public abstract List<string> Ingredients { get; }
 
     }
 }

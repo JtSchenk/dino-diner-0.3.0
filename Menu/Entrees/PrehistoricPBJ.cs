@@ -40,5 +40,14 @@ namespace DinoDiner.Menu.Entrees
         {
             ingredients.Remove("Jelly");
         }
+
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
+        }
     }
 }

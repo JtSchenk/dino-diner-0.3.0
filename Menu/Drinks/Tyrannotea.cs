@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
         /// <summary>
         /// public variable that sets sweet to false.
@@ -110,6 +110,22 @@ namespace DinoDiner.Menu.Drinks
             Calories = 8;
             ingredients.Add("Water");
             ingredients.Add("Tea");
+        }
+
+        /// <summary>
+        /// Overrides the ToString Method
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return size + " Sweet Tyrannotea";
+            }
+            else
+            {
+                return size + " Tyrannotea";
+            }
         }
     }
 }
