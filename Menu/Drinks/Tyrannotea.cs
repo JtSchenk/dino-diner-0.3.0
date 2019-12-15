@@ -128,6 +128,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

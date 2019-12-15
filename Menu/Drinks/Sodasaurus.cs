@@ -85,6 +85,9 @@ namespace DinoDiner.Menu
             return size + " " + flavor + " Sodasaurus";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

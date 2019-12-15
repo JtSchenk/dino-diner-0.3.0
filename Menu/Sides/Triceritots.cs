@@ -59,6 +59,9 @@ namespace DinoDiner.Menu
             return size + " Triceritots";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<String> Ingredients
         {
             get

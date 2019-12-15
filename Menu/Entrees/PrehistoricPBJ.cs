@@ -52,6 +52,9 @@ namespace DinoDiner.Menu
             return "Prehistoric PB&J";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

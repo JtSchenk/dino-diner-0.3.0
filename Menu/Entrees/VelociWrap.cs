@@ -65,6 +65,9 @@ namespace DinoDiner.Menu
             return "Veloci-Wrap";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

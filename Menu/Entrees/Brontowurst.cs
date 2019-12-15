@@ -63,6 +63,9 @@ namespace DinoDiner.Menu
             return "Brontowurst";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

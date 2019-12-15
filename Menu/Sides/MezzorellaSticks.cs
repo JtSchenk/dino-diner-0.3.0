@@ -58,6 +58,9 @@ namespace DinoDiner.Menu
             return size + " Mezzorella Sticks";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<String> Ingredients
         {
             get

@@ -82,6 +82,9 @@ namespace DinoDiner.Menu
             return "Steakosaurus Burger";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

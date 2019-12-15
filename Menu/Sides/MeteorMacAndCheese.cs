@@ -59,6 +59,9 @@ namespace DinoDiner.Menu
             return size + " Meteor Mac and Cheese";
         }
 
+        /// <summary>
+        /// Gets Ingredients
+        /// </summary>
         public override List<String> Ingredients
         {
             get

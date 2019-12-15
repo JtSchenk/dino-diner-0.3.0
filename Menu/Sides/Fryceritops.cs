@@ -53,11 +53,18 @@ namespace DinoDiner.Menu
             Ingredients.Add("Vegetable Oil");
         }
 
+        /// <summary>
+        /// Override ToString method
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{Size} Friceritops";
         }
 
+        /// <summary>
+        /// Gets Ingredients
+        /// </summary>
         public override List<String> Ingredients
         {
             get

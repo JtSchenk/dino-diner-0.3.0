@@ -136,6 +136,9 @@ namespace DinoDiner.Menu
             return "T-Rex King Burger";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get

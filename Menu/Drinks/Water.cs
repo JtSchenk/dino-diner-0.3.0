@@ -93,6 +93,9 @@ namespace DinoDiner.Menu
             return Size + " Water";
         }
 
+        /// <summary>
+        /// Overrides Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
