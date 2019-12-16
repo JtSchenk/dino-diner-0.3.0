@@ -1,0 +1,62 @@
+﻿<Page x:Class="PointOfSale.EntreeSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EntreeSelection">
+
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="MinHeight" Value="140"/>
+                <Setter Property="MinWidth" Value="140"/>
+            </Style>
+        </WrapPanel.Resources>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Brontowurst</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Dino-Nuggets</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Prehistoric PB&amp;J</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Pterodactly Wings</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Steakosaurus Burger</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>T-Rex King Burger</TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Width="140" Height="140">
+            <StackPanel>
+                <TextBlock>Veloci-Wrap</TextBlock>
+            </StackPanel>
+        </Button>
+        <!--<StackPanel>
+            <StackPanel>
+                <TextBlock>
+                    Saojdsajdajisdojiaojd
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        -->
+    </WrapPanel>
+</Page>
