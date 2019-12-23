@@ -37,6 +37,9 @@ namespace DinoDiner.Menu
 
         public virtual string[] Special { get; }
 
+        /// <summary>
+        /// jyes
+        /// </summary>
         public virtual string Description { get; }
 
     }
