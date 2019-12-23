@@ -29,7 +29,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and returns the ingredients for other classes
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        public virtual List<string> Ingredients { get; }
 
         public virtual string Description { get; }
 

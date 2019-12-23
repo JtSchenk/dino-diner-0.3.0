@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Variable that represents how many extra nuggets have been added.
