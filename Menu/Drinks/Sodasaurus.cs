@@ -5,11 +5,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink, IMenuItem
+    public class Sodasaurus : Drink, IMenuItem, INotifyPropertyChanged
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public bool Ice = true;
 
         /// <summary>
@@ -22,7 +30,11 @@ namespace DinoDiner.Menu
         public SodasaurusFlavor Flavor
         {
             get { return flavor; }
-            set { flavor = value; }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Description");
+            }
         }
 
         /// <summary>
@@ -39,6 +51,8 @@ namespace DinoDiner.Menu
             get { return size; }
             set
             {
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 size = value;
                 // set the prices for small and large
                 if (size == Size.Small)
@@ -73,6 +87,7 @@ namespace DinoDiner.Menu
 
         public void HoldIce()
         {
+            NotifyOfPropertyChange("Special");
             Ice = false;
         }
 
@@ -97,6 +112,21 @@ namespace DinoDiner.Menu
                 ingredients.Add("Natural Flavors");
                 ingredients.Add("Cane Sugar");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Ice == false) special.Add("Hold Ice");
+                return special.ToArray();
             }
         }
     }

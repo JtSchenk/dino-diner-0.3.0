@@ -5,15 +5,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink, IMenuItem
+    public class JurrasicJava : Drink, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// public variable ICE set to false.
-        /// </summary>
-        public bool Ice { get; set; } = false;
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// public variable RoomForCream set to false.
@@ -23,7 +26,15 @@ namespace DinoDiner.Menu
         /// <summary>
         /// public variable Decaf set to false.
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get { return Decaf; }
+            set
+            {
+                NotifyOfPropertyChange("Description");
+                Decaf = value;
+            }
+        }
 
         /// <summary>
         /// Private backing variable size.
@@ -40,6 +51,8 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Description");
                 // set the prices for small, medium, and large
                 if (size == Size.Small)
                 {
@@ -77,6 +90,7 @@ namespace DinoDiner.Menu
         {
             RoomForCream = true;
             ingredients.Add("Room For Cream");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -85,6 +99,7 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -115,6 +130,28 @@ namespace DinoDiner.Menu
                 if (RoomForCream) ingredients.Add("Room For Cream");
                 ingredients.Add("Coffee");
                 return ingredients;
+            }
+        }
+
+        /// <summary>
+        /// Gets Description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets Special modifications
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                if (Ice) special.Add("Add Ice");
+                return special.ToArray();
             }
         }
     }
