@@ -67,7 +67,7 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void HoldIce()
+        public virtual void HoldIce()
         {
             NotifyOfPropertyChanged("Special");
             Ice = false;

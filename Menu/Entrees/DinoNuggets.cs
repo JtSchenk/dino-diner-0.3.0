@@ -1,6 +1,12 @@
-﻿using System;
+﻿/*
+ * DinoNuggets.cs
+ * Author: Jacob Schenkelberg
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -10,7 +16,14 @@ namespace DinoDiner.Menu
         /// Variable that represents how many extra nuggets have been added.
         /// </summary>
         private uint extranugget = 0;
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// public variable that shows how many ingredients there are. EX: how many chicken nuggets there are.
         /// </summary>
@@ -45,11 +58,28 @@ namespace DinoDiner.Menu
             extranugget++;
             this.Calories = Calories + 59;
             this.Price = Price + 0.25;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Price");
         }
 
         public override string ToString()
         {
             return "Dino-Nuggets";
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (extranugget > 0) special.Add(extranugget + " Extra Nuggets");
+                return special.ToArray();
+            }
         }
     }
 

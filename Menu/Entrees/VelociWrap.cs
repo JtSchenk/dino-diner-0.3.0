@@ -1,11 +1,24 @@
-﻿using System;
+﻿/*
+ * VelociWrap.cs
+ * Author: Jacob Schenkelberg
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Sets the dressing to be true.
         /// </summary>
@@ -40,6 +53,7 @@ namespace DinoDiner.Menu
         {
             this.dressing = false;
             ingredients.Remove("Ceasar Dressing");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -49,6 +63,7 @@ namespace DinoDiner.Menu
         {
             this.lettuce = false;
             ingredients.Remove("Romaine Lettuce");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -58,6 +73,7 @@ namespace DinoDiner.Menu
         {
             this.cheese = false;
             ingredients.Remove("Parmesan Cheese");
+            NotifyOfPropertyChange("Special");
         }
 
         public override string ToString()
@@ -83,5 +99,23 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!lettuce) special.Add("Hold Romaine Lettuce");
+                if (!dressing) special.Add("Hold Caesar Dressing");
+                if (!cheese) special.Add("Hold Parmesan Cheese");
+                return special.ToArray();
+            }
+        }
+
     }
 }

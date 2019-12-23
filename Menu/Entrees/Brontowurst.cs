@@ -1,13 +1,42 @@
-﻿using System;
+﻿/*
+ * Brontowurst.cs
+ * Author: Jacob Schenkelberg
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree, IMenuItem, INotifyPropertyChanged
     {
-        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (wholewheatbun == false) special.Add("Hold Whole Wheat Bun");
+                if (onions == false) special.Add("Hold Onion");
+                if (peppers == false) special.Add("Hold Peppers");
+                return special.ToArray();
+            }
+        }
+
         // private field that intiliates the bun to be true. Later has a method that can change it to false.
         private bool wholewheatbun = true;
 
@@ -37,6 +66,7 @@ namespace DinoDiner.Menu
         {
             this.wholewheatbun = false;
             ingredients.Remove("Whole Wheat Bun");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -46,6 +76,7 @@ namespace DinoDiner.Menu
         {
             this.peppers = false;
             ingredients.Remove("Peppers");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -55,6 +86,7 @@ namespace DinoDiner.Menu
         {
             this.onions = false;
             ingredients.Remove("Onion");
+            NotifyOfPropertyChange("Special");
         }
 
 

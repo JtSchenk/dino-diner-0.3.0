@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -8,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// This public abstract method is a base for a bunch of sub classes.
     /// </summary>
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -33,6 +34,10 @@ namespace DinoDiner.Menu
         /// Gets or sets the size
         /// </summary>
         public abstract Size Size { get; set; }
+
+        public virtual string[] Special { get; }
+
+        public virtual string Description { get; }
 
     }
 }

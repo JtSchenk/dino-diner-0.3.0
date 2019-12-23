@@ -1,9 +1,24 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * PrehistoricPBJ.cs
+ * Author: Jacob Schenkelberg
+ */
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class PrehistoricPBJ : Entree
+    public class PrehistoricPBJ : Entree, IMenuItem, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// sets the peanutButter boolean to be true
         /// </summary>
@@ -32,6 +47,7 @@ namespace DinoDiner.Menu
         {
             this.peanutButter = false;
             ingredients.Remove("Peanut Butter");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -41,6 +57,7 @@ namespace DinoDiner.Menu
         {
             this.jelly = false;
             ingredients.Remove("Jelly");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -63,6 +80,22 @@ namespace DinoDiner.Menu
                 if (peanutButter) ingredients.Add("Peanut Butter");
                 if (jelly) ingredients.Add("Jelly");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (peanutButter == false) special.Add("Hold Peanut Butter");
+                if (jelly == false) special.Add("Hold Jelly");
+                return special.ToArray();
             }
         }
     }

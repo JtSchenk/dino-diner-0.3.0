@@ -85,7 +85,7 @@ namespace DinoDiner.Menu
             ingredients.Add("Cane Sugar");
         }
 
-        public void HoldIce()
+        public override void HoldIce()
         {
             NotifyOfPropertyChange("Special");
             Ice = false;

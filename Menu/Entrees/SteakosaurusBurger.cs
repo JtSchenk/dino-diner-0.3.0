@@ -1,11 +1,23 @@
-﻿using System;
+﻿/*
+ * SteakosaurusBurger.cs
+ * Author: Jacob Schenkelberg
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, IMenuItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Variable the sets the wholewheatbun to true.
         /// </summary>
@@ -44,6 +56,7 @@ namespace DinoDiner.Menu
         {
             this.wholewheatbun = false;
             ingredients.Remove("Whole Wheat Bun");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -53,6 +66,7 @@ namespace DinoDiner.Menu
         {
             this.pickle = false;
             ingredients.Remove("Pickle");
+            NotifyOfPropertyChange("Special");
         }
          
         /// <summary>
@@ -62,6 +76,7 @@ namespace DinoDiner.Menu
         {
             this.ketchup = false;
             ingredients.Remove("Ketchup");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -71,6 +86,7 @@ namespace DinoDiner.Menu
         {
             this.mustard = false;
             ingredients.Remove("Mustard");
+            NotifyOfPropertyChange("Special");
         }
 
         /// <summary>
@@ -98,6 +114,24 @@ namespace DinoDiner.Menu
                 if (ketchup) ingredients.Add("Ketchup");
                 if (mustard) ingredients.Add("Mustard");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!wholewheatbun) special.Add("Hold Whole Wheat Bun");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                return special.ToArray();
             }
         }
     }

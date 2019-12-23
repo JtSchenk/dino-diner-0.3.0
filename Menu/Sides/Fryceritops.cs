@@ -1,11 +1,23 @@
-﻿using System;
+﻿/*
+ * Fryceritops.cs
+ * Author: Jacob Schenkelberg
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Fryceritops : Side
+    public class Fryceritops : Side, IMenuItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Protected variable size inherited from the Size class.
         /// </summary>
@@ -23,6 +35,8 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 switch (size)
                 {
                     case Size.Small:
@@ -76,5 +90,20 @@ namespace DinoDiner.Menu
                 return Ingredients;
             }
         }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
     }
 }

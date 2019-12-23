@@ -5,11 +5,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Water : Drink, IMenuItem
+    public class Water : Drink, IMenuItem, INotifyPropertyChanged
     {
+        public override event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// public variable for lemonforwater. Gets, sets, and initially false.
         /// </summary>
@@ -35,6 +41,7 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Description");
                 // set the prices for small, medium, and large
                 if (size == Size.Small)
                 {
@@ -79,8 +86,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Method for holding the ice.
         /// </summary>
-        public void HoldIce()
+        public override void HoldIce()
         {
+            NotifyOfPropertyChange("Special");
             Ice = false;
         }
 
@@ -107,6 +115,22 @@ namespace DinoDiner.Menu
                     ingredients.Add("Lemon");
                 }
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Add Lemon");
+                if (Ice == false) special.Add("Hold Ice");
+                return special.ToArray();
             }
         }
     }

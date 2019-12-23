@@ -1,11 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
 {
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.AddRange(Entree.Special);
+                ingredients.Add(Side.ToString());
+                ingredients.AddRange(Side.Special);
+                ingredients.Add(Drink.ToString());
+                ingredients.AddRange(Drink.Special);
+                return ingredients.ToArray();
+            }
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
         public Entree Entree { get; set; }
         private Side side;
         public Side Side
@@ -15,6 +43,8 @@ namespace DinoDiner.Menu
             {
                 side = value;
                 side.Size = size;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
         }
         public Drink Drink { get; set; }
@@ -44,6 +74,8 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
         }
 
@@ -72,4 +104,5 @@ namespace DinoDiner.Menu
         }
 
     }
+    
 }
