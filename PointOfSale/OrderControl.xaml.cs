@@ -50,6 +50,11 @@ namespace PointOfSale
             MountItemListener();
         }
 
+        public void OnCollectionChanged(object sender, EventArgs args)
+        {
+            
+        }
+
         private void MountItemListener()
         {
             if (DataContext is Order order)
