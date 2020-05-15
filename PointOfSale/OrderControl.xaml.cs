@@ -52,7 +52,7 @@ namespace PointOfSale
 
         public void OnCollectionChanged(object sender, EventArgs args)
         {
-            
+            //CollectionViewSource.GetDefaultView(OrderItems.Items).MoveCurrentToLast();
         }
 
         private void MountItemListener()
