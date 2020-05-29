@@ -1,4 +1,5 @@
 ﻿using System;
+using DinoDiner.Menu;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,20 @@ namespace PointOfSale
         public FlavorSelection()
         {
             InitializeComponent();
+        }
+
+        Sodasaurus soda { get; set; }
+
+        public FlavorSelection(Sodasaurus sodasaurus)
+        {
+            soda = sodasaurus;
+            InitializeComponent();
+        }
+
+        public void MakeCherry(object sender, RoutedEventArgs args)
+        {
+            soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cherry;
+            NavigationService.Navigate(new DrinkSelection(soda));
         }
     }
 }
